@@ -1,13 +1,13 @@
 
 [distribution]
-d1 ansible_host=10.0.0.1 port=831
-d2 ansible_host=10.0.0.2 port=832
+d1 ansible_host=10.10.10.11
+d2 ansible_host=10.10.10.12
 
 [access]
-a1 ansible_host=10.0.0.11 port=841
-a2 ansible_host=10.0.0.12 port=842
-a3 ansible_host=10.0.0.13 port=843
-a4 ansible_host=10.0.0.14 port=844
+a1 ansible_host=10.10.10.21
+a2 ansible_host=10.10.10.22
+a3 ansible_host=10.10.10.23
+a4 ansible_host=10.10.10.24
 
 [ios_devices:children]
 distribution
@@ -16,7 +16,7 @@ access
 [ios_devices:vars]
 ansible_connection=network_cli
 ansible_network_os=ios
-ansible_user=admin
+ansible_user=cisco
 ansible_ssh_pass=Cisco123
 ansible_become=yes
 ansible_become_method=enable

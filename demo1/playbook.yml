@@ -2,3 +2,7 @@
 - name: Get switch config
   hosts: ios_devices
   gather_facts: no
+
+  ios_facts:
+      gather_subset:
+        - config
