@@ -1,0 +1,35 @@
+
+[distribution]
+d1 ansible_host=10.0.0.1
+d2 ansible_host=10.0.0.2
+
+[access]
+a1 ansible_host=10.0.0.11
+a2 ansible_host=10.0.0.12
+a3 ansible_host=10.0.0.13
+a4 ansible_host=10.0.0.14
+
+[ios_devices:children]
+distribution
+access
+
+[ios_devices:vars]
+ansible_connection=network_cli
+ansible_network_os=ios
+ansible_user=admin
+ansible_ssh_pass=Cisco123
+ansible_become=yes
+ansible_become_method=enable
+ansible_become_pass=Cisco123
+
+# ---- NETCONF ----
+
+[netconf_devices]
+placeholder ansible_host=1.2.3.4
+
+[netconf_devices:vars]
+ansible_connection=netconf
+ansible_network_os=default
+ansible_user=
+ansible_ssh_pass=
+#ansible_command_timeout=60
