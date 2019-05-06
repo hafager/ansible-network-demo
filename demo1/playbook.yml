@@ -3,6 +3,11 @@
   hosts: ios_devices
   gather_facts: no
 
-  ios_facts:
+  vars:
+    test: abc
+
+  tasks:
+    - name: Get Switch config
+      ios_facts:
       gather_subset:
         - config
