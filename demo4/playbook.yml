@@ -1,0 +1,29 @@
+---
+- name: Get switch netconf config
+  hosts: d1
+  gather_facts: no
+
+  tasks:
+    - name: "TASK 1: Get netconf XML from unit"
+      netconf_get:
+        source: running
+        display: xml
+      register: outputdict
+
+    - name: "TASK2: Format XML for easy viewing"
+      xml:
+        xmlstring: "{{ outputdict.stdout }}"
+        pretty_print: true
+      register: pretty_config
+      changed_when: false
+
+    - name: "TASK 3: Ensure outputs/ folder exists"
+      file:
+        path: "outputs"
+        state: directory
+      run_once: true
+
+    - name: "TASK 4: Write XML to disk"
+      copy:
+        content: "{{ pretty_config.xmlstring }}"
+        dest: "outputs/{{ inventory_hostname }}_netconf.xml"

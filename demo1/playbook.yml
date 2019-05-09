@@ -4,7 +4,9 @@
   gather_facts: no
 
   vars:
-    my_nameserver: 8.8.8.8
+    ntp_1: 1.1.1.1
+    ntp_2: 2.2.2.2
+
 
   tasks:
     - name: Get Switch config
@@ -12,6 +14,8 @@
         gather_subset:
           - config
 
-    - name: Configure DNS
+    - name: Configure NTP
       ios_config:
-        lines: "ip name-server {{ my_nameserver }}"
+        lines: 
+          - "ntp server {{ ntp_1 }}"
+          - "ntp server {{ ntp_2 }}"
