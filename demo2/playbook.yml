@@ -1,5 +1,5 @@
 ---
-- name: Get switch config
+- name: Configure NTP
   hosts: d1
 
   vars:
@@ -8,6 +8,6 @@
       - 2.2.2.2
 
   tasks:
-    - name: Configure NTP
+    - name: Configure NTP using CLI
       ios_config:
         lines: "{{ lookup('template', 'ntp-config.j2') }}"

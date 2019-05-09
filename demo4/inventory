@@ -21,16 +21,3 @@ ansible_ssh_pass=Cisco123
 ansible_become=yes
 ansible_become_method=enable
 ansible_become_pass=Cisco123
-
-
-# ---- NETCONF ----
-
-[netconf_devices]
-placeholder ansible_host=1.2.3.4
-
-[netconf_devices:vars]
-ansible_connection=netconf
-ansible_network_os=default
-ansible_user=cisco
-ansible_ssh_pass=Cisco123
-#ansible_command_timeout=60

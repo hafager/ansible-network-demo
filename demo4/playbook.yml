@@ -1,4 +1,14 @@
 ---
 - name: Get switch config
   hosts: ios_devices
-  gather_facts: no
+
+  tasks:
+    - name: Configure system variables
+      ios_system:
+        hostname: "{{ device_hostname }}"
+        name_servers: "{{ name_server }}"
+    - name: Create vlans
+      ios_vlan:
+        vlan_id: "{{ item.id }}"
+        name: "{{ item.name }}"
+      with_items: "{{ vlans }}"

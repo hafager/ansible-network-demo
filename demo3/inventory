@@ -8,4 +8,3 @@ ansible_connection=netconf
 ansible_network_os=default
 ansible_user=cisco
 ansible_ssh_pass=Cisco123
-#ansible_command_timeout=60

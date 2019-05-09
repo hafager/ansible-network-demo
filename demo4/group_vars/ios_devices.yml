@@ -1,0 +1,10 @@
+vlans:
+  - id: 100
+    name: MGMT
+  - id: 200
+    name: TEST
+  - id: 300
+    name: PROD-1
+  - id: 400
+    name: PROD-2
+  
