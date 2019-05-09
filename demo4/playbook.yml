@@ -1,5 +1,5 @@
 ---
-- name: Get switch config
+- name: Configure switches
   hosts: ios_devices
 
   tasks:
