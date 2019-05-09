@@ -10,5 +10,5 @@
   tasks:
     - name: Configure NTP using NetConf
       netconf_config:
-        content: "{{ lookup('template', 'ntp-config.j2') }}"
+        content: "{{ lookup('template', 'ntp-netconf.j2') }}"
 
