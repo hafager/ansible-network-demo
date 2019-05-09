@@ -1,4 +1,17 @@
 ---
 - name: Get switch config
-  hosts: ios_devices
+  hosts: d1
   gather_facts: no
+
+  vars:
+    my_nameserver: 8.8.8.8
+
+  tasks:
+    - name: Get Switch config
+      ios_facts:
+        gather_subset:
+          - config
+
+    - name: Configure DNS
+      ios_config:
+        lines: "ip name-server {{ my_nameserver }}"

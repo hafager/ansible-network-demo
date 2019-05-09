@@ -1,17 +1,13 @@
 ---
 - name: Get switch config
   hosts: d1
-  gather_facts: no
 
   vars:
-    my_nameserver: 8.8.8.8
+    ntp_servers:
+      - 1.1.1.1
+      - 2.2.2.2
 
   tasks:
-    - name: Get Switch config
-      ios_facts:
-        gather_subset:
-          - config
-
-    - name: Configure DNS
+    - name: Configure NTP
       ios_config:
-        lines: "ip name-server {{ my_nameserver }}"
+        lines: "{{ lookup('template', 'ntp-config.j2') }}"

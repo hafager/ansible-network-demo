@@ -1,15 +1,9 @@
 ---
 - name: Get switch config
   hosts: d1
-  gather_facts: no
-
-  vars:
-    ntp_1: 1.1.1.1
-    ntp_2: 2.2.2.2
 
   tasks:
     - name: Configure NTP
       ios_config:
         lines: 
-          - "ntp server {{ ntp_1 }}"
-          - "ntp server {{ ntp_2 }}"
+          - ntp server 1.1.1.1

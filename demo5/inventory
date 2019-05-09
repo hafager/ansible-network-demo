@@ -1,9 +1,6 @@
 d1 ansible_host=10.10.10.11
 
-[netconf_units]
-d1
-
-[netconf_units:vars]
+[d1:vars]
 ansible_connection=netconf
 ansible_network_os=default
 ansible_user=cisco
